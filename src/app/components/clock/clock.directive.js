@@ -20,7 +20,30 @@
     return directive;
 
     /** @ngInject */
-    function ClockController($scope, $interval) {
+    function ClockController($scope, $interval, $localStorage) {
+
+      function setStorage(data) {
+        var tmpDate = new Date();
+        tmpDate.setMinutes(tmpDate.getMinutes() + 1);
+
+        var local = {
+          data: data || { name: 'Vasya' },
+          expire: +tmpDate
+        };
+        $localStorage.angular_sept_16 = local;
+      }
+
+      if ('angular_sept_16' in $localStorage) {
+
+        if ((new Date() - $localStorage.angular_sept_16.expire) > 0) {
+          delete $localStorage.angular_sept_16;
+          console.log('$localStorage.angular_sept_16 was expired');
+        }
+      } else {
+        setStorage({
+          name: 'angularjs'
+        });
+      }
 
       $scope.currentTime = new Date();
 
