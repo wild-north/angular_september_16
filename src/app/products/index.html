@@ -1,13 +1,18 @@
 <div class="content">
 	<h2>Goods</h2>
 
-	<h2>Original: {{user.name}}</h2>
-
-	<button ng-click="state = !state;">toggle</button>
-
-	<div ng-if="state">
-		<h2>NgIf: {{user.name}}</h2>
-		<button ng-click="user.name = 'Петр Петров'">change name</button>
+	<div ng-repeat="item in products.items track by item._id">
+		<h3>{{item.title}}</h3>
+		<div>Artist: {{item.artist}}</div>
+		<div>
+			Album: {{item.album}}
+			<div>
+				<img ng-src="{{item.albumCover}}" alt="image-{{item.album}}">
+			</div>
+		</div>
+		<div>Genre: {{item.genre}}</div>
+		<div>Cost: {{item.cost}}</div>
+		<div>Date: {{item.releaseDate | date: 'yyyy'}}</div>
 	</div>
 
 </div>

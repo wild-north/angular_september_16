@@ -10,6 +10,11 @@
         controller: 'ProductsController',
         controllerAs: 'products'
       })
+      .when('/basket', {
+        templateUrl: 'app/basket/index.html',
+        controller: 'BasketController',
+        controllerAs: 'basket'
+      })
       .otherwise({
         redirectTo: '/products'
       });

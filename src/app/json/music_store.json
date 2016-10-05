@@ -7,7 +7,7 @@
     "albumCover": "http://placehold.it/32x32",
     "genre": "metal",
     "cost": "$1.70",
-    "releaseDate": "1988-09-11T06:12:58 -03:00"
+    "releaseDate": "1988-09-11T06:12:58-03:00"
   },
   {
     "_id": "89d73fcc-084d-4660-a04d-ed56c07ee7fc",
@@ -17,7 +17,7 @@
     "albumCover": "http://placehold.it/32x32",
     "genre": "rock",
     "cost": "$6.10",
-    "releaseDate": "1989-08-01T12:15:09 -03:00"
+    "releaseDate": "1989-08-01T12:15:09-03:00"
   },
   {
     "_id": "c8ad20b3-3e15-4e25-973d-b71496a7f7a0",
@@ -27,7 +27,7 @@
     "albumCover": "http://placehold.it/32x32",
     "genre": "electronic",
     "cost": "$3.70",
-    "releaseDate": "1984-04-25T08:50:24 -03:00"
+    "releaseDate": "1984-04-25T08:50:24-03:00"
   },
   {
     "_id": "3adc0307-158e-45aa-a03d-61a510449c17",
@@ -37,7 +37,7 @@
     "albumCover": "http://placehold.it/32x32",
     "genre": "electronic",
     "cost": "$2.50",
-    "releaseDate": "1990-02-16T03:20:49 -03:00"
+    "releaseDate": "1990-02-16T03:20:49-03:00"
   },
   {
     "_id": "1218f599-6bfa-42d6-b5cf-3c1ffeaf274c",
@@ -47,7 +47,7 @@
     "albumCover": "http://placehold.it/32x32",
     "genre": "electronic",
     "cost": "$1.90",
-    "releaseDate": "1982-01-27T05:34:16 -03:00"
+    "releaseDate": "1982-01-27T05:34:16-03:00"
   },
   {
     "_id": "b5af5628-3d5a-43c2-8011-e6d71338fb03",
@@ -57,6 +57,6 @@
     "albumCover": "http://placehold.it/32x32",
     "genre": "blues",
     "cost": "$2.50",
-    "releaseDate": "1984-09-29T02:59:40 -03:00"
+    "releaseDate": "1984-09-29T02:59:40-03:00"
   }
 ]

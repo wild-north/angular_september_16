@@ -9,14 +9,14 @@
   function ProductsController($scope, toastr, ProductsAPI) {
     var vm = this;
 
-    $scope.user = {
-    	name: 'Иван Иванов'
-    };
+
+    vm.user = 'Иван Иванов';
+
 
     ProductsAPI
     	.getAll()
     	.then(function(response) {
-    		// response.data
+    		vm.items = response.data;
     	});
 
   }
