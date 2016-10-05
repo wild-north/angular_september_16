@@ -12,7 +12,8 @@
       templateUrl: 'app/components/clock/clock.html',
       scope: {
         timeFormat: '@format',
-        alarm: '@',
+        alarm: '=',
+        clockId: '@',
       },
       controller: ClockController
     };
@@ -21,38 +22,31 @@
 
     /** @ngInject */
     function ClockController($scope, $interval, $localStorage) {
-
-      function setStorage(data) {
-        var tmpDate = new Date();
-        tmpDate.setMinutes(tmpDate.getMinutes() + 1);
-
-        var local = {
-          data: data || { name: 'Vasya' },
-          expire: +tmpDate
-        };
-        $localStorage.angular_sept_16 = local;
-      }
-
-      if ('angular_sept_16' in $localStorage) {
-
-        if ((new Date() - $localStorage.angular_sept_16.expire) > 0) {
-          delete $localStorage.angular_sept_16;
-          console.log('$localStorage.angular_sept_16 was expired');
-        }
-      } else {
-        setStorage({
-          name: 'angularjs'
-        });
-      }
-
+      var alarmConfig;
       $scope.currentTime = new Date();
 
-      var alarm = {
-        hours: $scope.alarm.split(':')[0],
-        minutes: $scope.alarm.split(':')[1],
-        flag: false
-      };
-      console.log(alarm);
+      function setStorage(name, data) {
+        $localStorage[name] = data;
+      }
+
+      $scope.$watch('alarm', function(newVal, oldVal) {
+        initAlarm();
+      });
+
+      function initAlarm() {
+        if ($scope.alarm) {
+          alarmConfig = {
+            hours: $scope.alarm.split(':')[0],
+            minutes: $scope.alarm.split(':')[1]
+          };
+          setStorage($scope.clockId, alarmConfig);
+        } else if($localStorage[$scope.clockId]) {
+          alarmConfig = $localStorage[$scope.clockId];
+          $scope.alarm = alarmConfig.hours + ':' + alarmConfig.minutes;
+        }
+
+      }
+      initAlarm();
 
       $interval(function() {
         $scope.currentTime = new Date();
@@ -60,20 +54,14 @@
       }, 1000);
 
       function checkIfAlarm() {
-        if (!$scope.alarm || alarm.flag) return;
+        if (!$scope.alarm) return;
 
-        if ($scope.currentTime.getHours() == alarm.hours &&
-            $scope.currentTime.getMinutes() == alarm.minutes) {
-          alarm.flag = !alarm.flag;
+        if ($scope.currentTime.getHours() == alarmConfig.hours &&
+            $scope.currentTime.getMinutes() == alarmConfig.minutes &&
+            $scope.currentTime.getSeconds() === 0 ) {
+
+          setStorage(alarmConfig);
           alert('Дзылинь!');
-        }
-      }
-
-      function local(value) {
-        if (value) {
-          return localStorage.alarmFlag;
-        } else {
-          localStorage.alarmFlag = value;
         }
       }
 

@@ -3,8 +3,12 @@
   <div>
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
+  <input type="time" ng-model="alarmDate">
+  {{alarmDate}}
+  <button ng-click="showDate()">Show Date</button>
+  <clock format="HH:mm:ss" alarm="alarmDate | date:'HH:mm'" clock-id="1" style="color: red;"></clock>
 
-  <clock format="HH:mm:ss" alarm="21:25"></clock>
+  <clock format="HH:mm:ss" alarm="'15:20'" clock-id="2" style="color: green;"></clock>
 
 <!--   <div class="jumbotron text-center">
     <h1>'Allo, 'Allo!</h1>
