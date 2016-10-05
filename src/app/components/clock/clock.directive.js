@@ -46,7 +46,7 @@
         }
 
       }
-      initAlarm();
+      // initAlarm();
 
       $interval(function() {
         $scope.currentTime = new Date();

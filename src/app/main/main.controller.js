@@ -13,5 +13,7 @@
     	console.log($scope.alarmDate);
     };
 
+    // $scope.alarmDate = new Date();
+
   }
 })();
