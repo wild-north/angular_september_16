@@ -3,18 +3,16 @@
 
   angular
     .module('yeoman')
-    .config(routeConfig);
-
-  function routeConfig($routeProvider) {
+    .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .when('/products', {
+        templateUrl: 'app/products/index.html',
+        controller: 'ProductsController',
+        controllerAs: 'products'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/products'
       });
-  }
+  });
 
 })();
