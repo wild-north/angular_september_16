@@ -8,12 +8,12 @@
       .when('/products', {
         templateUrl: 'app/products/index.html',
         controller: 'ProductsController',
-        controllerAs: 'products'
+        controllerAs: 'productsCtrl'
       })
       .when('/basket', {
         templateUrl: 'app/basket/index.html',
         controller: 'BasketController',
-        controllerAs: 'basket'
+        controllerAs: 'basketCtrl'
       })
       .otherwise({
         redirectTo: '/products'

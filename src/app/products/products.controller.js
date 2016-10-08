@@ -19,5 +19,11 @@
     		vm.items = response.data;
     	});
 
+    $scope.clickMe = function(argument) {
+      console.log('click!!!');
+    };
+
+
+
   }
 })();

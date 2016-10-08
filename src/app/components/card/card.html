@@ -1,0 +1,18 @@
+<div class="card">
+	<h3>{{card.product.title}}</h3>
+	<div>Artist: {{card.product.artist}}</div>
+	<div>
+		Album: {{card.product.album}}
+		<div>
+			<img ng-src="{{card.product.albumCover}}" alt="image-{{card.product.album}}">
+		</div>
+	</div>
+	<div>Genre: {{card.product.genre}}</div>
+	<div>Cost: {{card.product.cost}}</div>
+	<div>Date: {{card.product.releaseDate | date: 'yyyy'}}</div>
+	<div ng-if="card.product.count">
+		<input type="number" ng-model="card.count">
+		<button ng-click="card.buy();">Buy now!</button>
+	</div>
+	<div ng-if="!card.product.count">Out of stock</div>
+</div>
