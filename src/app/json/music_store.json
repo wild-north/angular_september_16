@@ -6,7 +6,7 @@
     "album": "Magma",
     "albumCover": "http://placehold.it/32x32",
     "genre": "metal",
-    "cost": "$1.70",
+    "cost": "1.70",
     "releaseDate": "1988-09-11T06:12:58-03:00",
     "count": 0
   },
@@ -17,7 +17,7 @@
     "album": "The Wall",
     "albumCover": "http://placehold.it/32x32",
     "genre": "rock",
-    "cost": "$6.10",
+    "cost": "6.10",
     "releaseDate": "1989-08-01T12:15:09-03:00",
     "count": 30
   },
@@ -28,7 +28,7 @@
     "album": "Music for the Jilted Generation",
     "albumCover": "http://placehold.it/32x32",
     "genre": "electronic",
-    "cost": "$3.70",
+    "cost": "3.70",
     "releaseDate": "1984-04-25T08:50:24-03:00",
     "count": 30
   },
@@ -39,7 +39,7 @@
     "album": "Invaders Must Die",
     "albumCover": "http://placehold.it/32x32",
     "genre": "electronic",
-    "cost": "$2.50",
+    "cost": "2.50",
     "releaseDate": "1990-02-16T03:20:49-03:00",
     "count": 30
   },
@@ -50,7 +50,7 @@
     "album": "The Maze To Nowhere",
     "albumCover": "http://placehold.it/32x32",
     "genre": "electronic",
-    "cost": "$1.90",
+    "cost": "1.90",
     "releaseDate": "1982-01-27T05:34:16-03:00",
     "count": 30
   },
@@ -61,7 +61,7 @@
     "album": "black metal",
     "albumCover": "http://placehold.it/32x32",
     "genre": "blues",
-    "cost": "$2.50",
+    "cost": "2.50",
     "releaseDate": "1984-09-29T02:59:40-03:00",
     "count": 29
   }

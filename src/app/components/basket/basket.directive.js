@@ -19,13 +19,19 @@
     return directive;
 
     /** @ngInject */
-    function BasketController($scope, Basket) {
+    function BasketController($scope, Basket, BasketEvents, userConfig) {
       var vm = this;
+      vm.currency = userConfig.CURRENCY;
 
-      Basket.subscribe(function(data) {
-        vm.basket = data;
+      $scope.$on(BasketEvents.UPDATED, function(e, data) {
         console.log(data);
       });
+
+      // Basket.subscribe(function(data) {
+      //   vm.basket = data;
+      //   vm.totalGoods = Basket.totalGoods;
+      //   vm.totalCost = Basket.totalCost;
+      // });
 
       vm.basket = Basket.get();
     }

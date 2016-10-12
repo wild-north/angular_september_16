@@ -1,1 +1,14 @@
-<span class="basket">В вашей корзине: {{basketCtrl.basket.length}}</span>
+<div ng-switch="basketCtrl.basket.length">
+	<div ng-switch-when="0">
+		<span class="basket">
+			Купите у нас что-нибудь! Ну пожалуйста! :З
+		</span>
+	</div>
+	<div ng-switch-default>
+		<span class="basket">
+		В вашей корзине: {{basketCtrl.totalGoods}}
+		<br/>
+		На сумму: {{basketCtrl.currency}}{{basketCtrl.totalCost}}
+		</span>
+	</div>
+</div>

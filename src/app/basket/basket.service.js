@@ -3,37 +3,48 @@
 
   angular
     .module('yeoman')
-    .service('Basket', BasketService);
+    .service('Basket', BasketService)
+    .constant('BasketEvents', {
+      UPDATED: 'basket-updated'
+    });
 
   /** @ngInject */
-  function BasketService() {
+  function BasketService($rootScope, BasketEvents) {
   	var basket = [];
+    this.totalGoods = 0;
+    this.totalCost = 0;
 
-  	var notifications = [];
 
-  	this.subscribe = function(callback) {
-  		if (notifications.indexOf(callback) == -1) {
-  			notifications.push(callback);
-  		}
-  	};
+  	// var notifications = [];
 
-  	this.notify = function() {
-  		notifications.forEach(function(callback) {
-  			if (typeof callback == 'function') {
-  				callback(basket);
-  			}
-  		});
-  	};
+  	// this.subscribe = function(callback) {
+  	// 	if (typeof callback == 'function' && notifications.indexOf(callback) == -1) {
+  	// 		notifications.push(callback);
+  	// 	}
+  	// };
 
+  	// this.notify = function() {
+  	// 	notifications.forEach(function(callback) {
+			// 	callback(basket);
+  	// 	});
+  	// };
+
+    var notify = function() {
+      $rootScope.$broadcast(BasketEvents.UPDATED, basket);
+    };
 
     this.add = function(item) {
     	var index = findInBasket(item.id);
+      var count = +item.count;
+      var cost = +item.cost * count;
     	if (index === -1) {
 	    	basket.push(item);
-    	} else {
-    		basket[index].count += item.count;
-    	}
-    	this.notify();
+      } else {
+        basket[index].count += count;
+      }
+      this.totalGoods += count;
+      this.totalCost += cost;
+    	notify();
     };
 
     this.get = function() {
@@ -44,7 +55,9 @@
     	var index = findInBasket(item.id);
     	if (index !== -1) {
     		basket.splice(index, 1);
-	    	this.notify();
+        this.totalGoods -= +basket[index].count;
+        this.totalCost -= +basket[index].cost;
+	    	notify();
     	}
     };
 
