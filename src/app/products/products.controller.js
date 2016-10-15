@@ -6,9 +6,11 @@
     .controller('ProductsController', ProductsController);
 
   /** @ngInject */
-  function ProductsController($scope, toastr, ProductsAPI) {
+  function ProductsController($scope, $state, $stateParams, toastr, ProductsAPI) {
     var vm = this;
 
+    vm.stateName = $state.current.name;
+    $scope.$state = $state;
 
     vm.user = 'Иван Иванов';
 

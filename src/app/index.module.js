@@ -3,7 +3,7 @@
 
   angular
     .module('yeoman', [
-    	'ngRoute',
+    	'ui.router',
     	'ui.bootstrap',
     	'toastr',
     	'ngStorage'
