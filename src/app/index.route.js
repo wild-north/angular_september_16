@@ -4,7 +4,7 @@
   angular
     .module('yeoman')
     .config(function ($routeProvider) {
-    $routeProvider
+      $routeProvider
       .when('/products', {
         templateUrl: 'app/products/index.html',
         controller: 'ProductsController',
