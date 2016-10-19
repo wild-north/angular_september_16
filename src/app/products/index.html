@@ -2,8 +2,6 @@
 
 	<h2>Goods</h2>
 
-	<ui-view></ui-view>
-
-	<card ng-if="$state.current.name === 'products'" ng-repeat="prod in productsCtrl.items track by prod._id" product="prod"></card>
+	<card ng-repeat="prod in productsCtrl.items track by prod._id" product="prod" id="{{$index}}"></card>
 
 </div>

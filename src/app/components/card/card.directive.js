@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: 'app/components/card/card.html',
       scope: {
-        product: '='
+        product: '=',
+        id: "@"
       },
       controller: CardController,
       // link: function(scope, $elem, attrs) {
@@ -25,7 +26,7 @@
     return directive;
 
     /** @ngInject */
-    function CardController($scope, toastr, Basket) {
+    function CardController($scope, $state, toastr, Basket) {
       var vm = this;
       vm.count = 1;
 
@@ -50,6 +51,14 @@
           cost: vm.product.cost
         });
       };
+
+      vm.goToDetails = function(e) {
+        if (e && typeof e.preventDefault == 'function') {
+          e.preventDefault();
+        }
+        $state.go('products.details', {id: vm.id});
+      };
+
     }
   }
 
