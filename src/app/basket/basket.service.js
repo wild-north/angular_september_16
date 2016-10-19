@@ -30,7 +30,7 @@
   	// };
 
     var notify = function() {
-      $rootScope.$broadcast(BasketEvents.UPDATED, basket);
+      $rootScope.$broadcast(BasketEvents.UPDATED);
     };
 
     this.add = function(item) {

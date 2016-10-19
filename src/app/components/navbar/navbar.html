@@ -1,19 +1,9 @@
-<nav class="navbar navbar-static-top navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
-        <span class="glyphicon glyphicon-home"></span> Gulp Angular
-      </a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-      <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="/">Home</a></li>
-        <li><a href="/#/basket">Basket</a></li>
-      </ul>
-
-      <basket></basket>
-
-    </div>
-  </div>
+<nav>
+  <h3>Gulp Angular</h3>
+  <ul class="nav">
+    <li><a ui-sref="products.main">Home</a></li>
+    <li><a ui-sref="basket">Basket</a></li>
+    <li><a ui-sref="login">Login</a></li>
+  </ul>
+  <basket></basket>
 </nav>

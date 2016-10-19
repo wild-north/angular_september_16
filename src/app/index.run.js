@@ -6,10 +6,28 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope) {
+  function runBlock($rootScope, AUTH_EVENTS, AuthService) {
 
-    $log.debug('runBlock end');
+  	$rootScope.$on('$stateChangeStart', function (event, next) {
+
+  		var authorizedRoles = next.data.authorizedRoles;
+  		if (authorizedRoles) {
+
+	  		if (!AuthService.isAuthorized(authorizedRoles)) {
+	  			event.preventDefault();
+	  			if (AuthService.isAuthenticated()) {
+	        // user is not allowed
+	        $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
+	      } else {
+	        // user is not logged in
+	        $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+	      }
+
+      }
+    }
+  });
 
   }
+
 
 })();

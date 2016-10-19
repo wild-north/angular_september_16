@@ -23,8 +23,11 @@
       var vm = this;
       vm.currency = userConfig.CURRENCY;
 
-      $scope.$on(BasketEvents.UPDATED, function(e, data) {
-        console.log(data);
+      $scope.$on(BasketEvents.UPDATED, function(e) {
+        // vm.basket = data;
+        vm.basket = Basket.get();
+        vm.totalGoods = Basket.totalGoods;
+        vm.totalCost = Basket.totalCost;
       });
 
       // Basket.subscribe(function(data) {

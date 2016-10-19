@@ -8,7 +8,7 @@
     "genre": "metal",
     "cost": "1.70",
     "releaseDate": "1988-09-11T06:12:58-03:00",
-    "count": 0
+    "count": 10
   },
   {
     "_id": "89d73fcc-084d-4660-a04d-ed56c07ee7fc",
@@ -17,7 +17,7 @@
     "album": "The Wall",
     "albumCover": "http://placehold.it/32x32",
     "genre": "rock",
-    "cost": "6.10",
+    "cost": "5000000",
     "releaseDate": "1989-08-01T12:15:09-03:00",
     "count": 30
   },
