@@ -6,13 +6,25 @@
     .service('ProductsAPI', Service);
 
   /** @ngInject */
-  function Service($http) {
+  function Service($http, $q) {
+
+    var products = [];
 
   	this.getAll = function() {
-  		return $http({
-  			method: 'GET',
-  			url: '/app/json/music_store.json'
-  		});
+      var d = $q.defer();
+      if (products.length) {
+        d.resolve(products);
+      } else {
+        $http({
+          method: 'GET',
+          url: '/app/json/music_store.json'
+        })
+        .then(function(response) {
+          products = response.data;
+          d.resolve(products);
+        });
+      }
+      return d.promise;
   	};
 
   }

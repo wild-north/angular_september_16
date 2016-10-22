@@ -23,6 +23,11 @@
         controllerAs: 'productsCtrl',
         data: {
           authorizedRoles: [USER_ROLES.admin]
+        },
+        resolve: {
+          productsList: function(ProductsAPI) {
+            return ProductsAPI.getAll();
+          }
         }
       })
       .state('products.details', {
