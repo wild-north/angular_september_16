@@ -9,7 +9,7 @@
   function ProductsController($scope, $state, $stateParams, toastr, productsList, ProductsAPI) {
     var vm = this;
 
-    console.log(productsList);
+    // console.log(productsList);
     vm.items = productsList;
 
     vm.stateName = $state.current.name;

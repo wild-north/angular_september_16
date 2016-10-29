@@ -6,27 +6,20 @@
     .controller('BasketController', BasketController);
 
   /** @ngInject */
-  function BasketController($q) {
+  function BasketController(Basket, ProductsAPI) {
     var vm = this;
 
+    ProductsAPI.getAll().then(function(data) {
+      vm.productsList = data;
+      console.log(data);
+    });
 
-    function getMyData () {
-    	var defer = $q.defer();
-    	setTimeout(function() {
-    		console.log(12123);
-    		defer.resolve('some data');
-    	}, 1000);
-    	return defer.promise;
-    }
-
-		getMyData().then(function(data) {
-			return data;
-		}).then(function(newData) {
-			console.log(newData);
-		});
-
-
-
+    vm.basket = Basket.get();
+    var ids = vm.basket.map(function(element) {
+      return element.id;
+    });
+    console.log(ids);
+    console.log(vm.basket);
 
   }
 })();

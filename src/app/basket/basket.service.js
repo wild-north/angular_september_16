@@ -14,21 +14,6 @@
     this.totalGoods = 0;
     this.totalCost = 0;
 
-
-  	// var notifications = [];
-
-  	// this.subscribe = function(callback) {
-  	// 	if (typeof callback == 'function' && notifications.indexOf(callback) == -1) {
-  	// 		notifications.push(callback);
-  	// 	}
-  	// };
-
-  	// this.notify = function() {
-  	// 	notifications.forEach(function(callback) {
-			// 	callback(basket);
-  	// 	});
-  	// };
-
     var notify = function() {
       $rootScope.$broadcast(BasketEvents.UPDATED);
     };

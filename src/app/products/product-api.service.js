@@ -10,8 +10,6 @@
 
     var products = [];
 
-
-
   	this.getAll = function() {
       var url = '/app/json/:fileName';
       // music_store.json
@@ -30,18 +28,18 @@
             params: {
               fileName: '@file'
             }
-          },
+          }
         });
 
 
-        res.addProduct({ }, {id: 9999, text: 'lorem', file: 'music_store.json'})
+        // res.addProduct({ }, {id: 9999, text: 'lorem', file: 'music_store.json'})
 
         res.getProducts({
           fileName: 'music_store.json'
         })
         .$promise
         .then(function(data) {
-          console.log(data);
+          // console.log(data);
           d.resolve(data);
         });
 
