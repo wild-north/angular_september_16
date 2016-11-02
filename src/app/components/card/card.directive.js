@@ -12,7 +12,8 @@
       templateUrl: 'app/components/card/card.html',
       scope: {
         product: '=',
-        id: "@"
+        id: "@",
+        mode: "@"
       },
       controller: CardController,
       // link: function(scope, $elem, attrs) {
@@ -29,6 +30,8 @@
     function CardController($scope, $state, toastr, Basket) {
       var vm = this;
       vm.count = 1;
+
+      vm.mode = vm.mode || 'card';
 
       $scope.$watch('card.count', function() {
         if (vm.count < 0)

@@ -1,9 +1,19 @@
 <h1>basket</h1>
 
+<card
+	ng-repeat="product in basketCtrl.productsInBasket track by $index"
+	product="product"
+	id="{{$index}}"
+	mode="basket"
+></card>
 
-<div ng-repeat="good in basketCtrl.basket">
-	<div>{{good.count}}</div>
-	<div>{{good.cost}}</div>
-	<hr>
-</div>
 
+<!--
+<form action="#" name="Form" novalidate>
+	<input type="email" name="email" placeholder="Email" required ng-model="formData.email">
+
+	<input type="password" name="pass" placeholder="Password" required ng-model="formData.pass" ng-pattern="/.{3,10}/">
+
+	<input type="submit" value="OK" ng-disabled="Form.$invalid"/>
+</form>
+ -->

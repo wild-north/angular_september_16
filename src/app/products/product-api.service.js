@@ -39,7 +39,7 @@
         })
         .$promise
         .then(function(data) {
-          // console.log(data);
+          data = JSON.parse(JSON.stringify(data));
           d.resolve(data);
         });
 
